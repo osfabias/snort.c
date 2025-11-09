@@ -1,6 +1,6 @@
 # snort
 
-snort is a C library template that provides a solid foundation for building C libraries with modern tooling and best practices.
+C logging library.
 
 ## Table of Contents
 

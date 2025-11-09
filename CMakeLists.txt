@@ -39,8 +39,6 @@ else()
     -Wpedantic
 
     -Wno-gnu-zero-variadic-macro-arguments
-
-    -fmacro-prefix-map=${CMAKE_SOURCE_DIR}=.
     # add new clang or gnu compile options here...
   )
 endif()

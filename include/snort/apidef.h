@@ -15,7 +15,7 @@
 */
 
 /*
-  @file include/lib/apidef.h
+  @file include/snort/apidef.h
   @brief API definition macros for cross-platform compatibility
   @author Ilya Buravov (ilburale@gmail.com)
   @details This header file defines macros for proper function export/import

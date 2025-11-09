@@ -1,0 +1,4 @@
+option(SNORT_BUILD_SHARED "Build library as a shared library." OFF)
+option(SNORT_BUILD_EXAMPLE "Build example program." ${SNORT_IS_STANDALONE_BUILD})
+option(SNORT_BUILD_TESTS "Build test programs." ${SNORT_IS_STANDALONE_BUILD})
+option(SNORT_ENABLE_COVERAGE "Enable code coverage for tests (requires Debug build)." ${SNORT_IS_STANDALONE_BUILD})

@@ -15,20 +15,9 @@
 */
 
 /*
-  @file include/snort/level.h
-  @brief Log level enum
+  @file include/snort/logging.h
+  @brief Logging functions and macros
   @author Ilya Buravov (ilburale@gmail.com)
 */
 
 #pragma once
-
-// Log entry level
-typedef enum
-{
-  LOG_LEVEL_TRACE,    // Low-level implementation details.
-  LOG_LEVEL_DEBUG,    // Information about the current state of the program.
-  LOG_LEVEL_INFO,     // Informational or success messages.
-  LOG_LEVEL_WARNING,  // Warnings (you got it).
-  LOG_LEVEL_ERROR,    // Non-fatal errors that do not crush the program.
-  LOG_LEVEL_FATAL     // Fatal errors that do crush the program.
-} LogLevel;

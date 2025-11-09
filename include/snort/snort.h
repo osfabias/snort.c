@@ -22,4 +22,5 @@
 
 #pragma once
 
+#include "snort/entry.h"
 #include "snort/level.h"

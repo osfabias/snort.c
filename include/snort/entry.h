@@ -15,20 +15,23 @@
 */
 
 /*
-  @file include/snort/level.h
-  @brief Log level enum
+  @file include/snort/entry.h
+  @brief Log entry struct
   @author Ilya Buravov (ilburale@gmail.com)
 */
 
 #pragma once
 
-// Log entry level
-typedef enum
+#include <stdint.h>
+
+#include "snort/level.h"
+
+
+// Log entry
+typedef struct
 {
-  LOG_LEVEL_TRACE,    // Low-level implementation details.
-  LOG_LEVEL_DEBUG,    // Information about the current state of the program.
-  LOG_LEVEL_INFO,     // Informational or success messages.
-  LOG_LEVEL_WARNING,  // Warnings (you got it).
-  LOG_LEVEL_ERROR,    // Non-fatal errors that do not crush the program.
-  LOG_LEVEL_FATAL     // Fatal errors that do crush the program.
-} LogLevel;
+  const char *const file_path;    // A path to the file being logged.
+  const uint32_t    line_number;  // Source line number where the log entry originate.
+  const LogLevel    level;        // Message severity.
+  const char *const text;         // Message text.
+} LogEntry;

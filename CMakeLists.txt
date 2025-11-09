@@ -6,8 +6,8 @@ cmake_minimum_required(VERSION 3.16)
 # Basic project setup, versioning, and testing framework initialization
 project(
   "snort"
-  VERSION 0.1.0
-  DESCRIPTION "A C library."
+  VERSION 0.2.0
+  DESCRIPTION "Logging library."
 )
 
 #-----------------------------------------------------------------------------

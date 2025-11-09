@@ -1,6 +1,6 @@
 # snort.c 🐖
 
-C logging library.
+`snort.c` is a C logging library.
 
 ## Table of Contents
 

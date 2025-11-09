@@ -15,26 +15,25 @@
 */
 
 /*
-  @file example/main.c
-  @brief Example program demonstrating library usage
+  @file include/snort/entry.h
+  @brief Log entry struct
   @author Ilya Buravov (ilburale@gmail.com)
-  @details This file provides a simple example of how to use the library.
-           It demonstrates basic library initialization and function calls.
-           This serves as a template for users to understand library usage.
 */
 
-#include <stdlib.h>
+#pragma once
 
-#include <snort/logging.h>
+#include <stdint.h>
+#include <time.h>
 
-int main (void)
+#include "snort/level.h"
+
+
+// Log entry
+typedef struct
 {
-  trace ("trace message!");
-  debug ("debug message!");
-  info ("info message!");
-  warning ("warning message!");
-  error ("error message!");
-  fatal ("fatal message!");
-
-  return EXIT_SUCCESS;
-}
+  const char *const file_path;    // A path to the file being logged.
+  const char *const message;      // Detail message.
+  const time_t      timestamp;    // Time when the log entry was created.
+  const uint32_t    line_number;  // Source line number where the log entry originate.
+  const LogLevel    level;        // Message severity.
+} LogEntry;

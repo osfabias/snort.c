@@ -15,26 +15,22 @@
 */
 
 /*
-  @file example/main.c
-  @brief Example program demonstrating library usage
+  @file include/snort/level.h
+  @brief Log level enum
   @author Ilya Buravov (ilburale@gmail.com)
-  @details This file provides a simple example of how to use the library.
-           It demonstrates basic library initialization and function calls.
-           This serves as a template for users to understand library usage.
 */
 
-#include <stdlib.h>
+#pragma once
 
-#include <snort/logging.h>
-
-int main (void)
+// Log entry level
+typedef enum
 {
-  trace ("trace message!");
-  debug ("debug message!");
-  info ("info message!");
-  warning ("warning message!");
-  error ("error message!");
-  fatal ("fatal message!");
+  LOG_LEVEL_TRACE,    // Low-level implementation details.
+  LOG_LEVEL_DEBUG,    // Information about the current state of the program.
+  LOG_LEVEL_INFO,     // Informational or success messages.
+  LOG_LEVEL_WARNING,  // Warnings (you got it).
+  LOG_LEVEL_ERROR,    // Non-fatal errors that do not crush the program.
+  LOG_LEVEL_FATAL,    // Fatal errors that do crush the program.
 
-  return EXIT_SUCCESS;
-}
+  LOG_LEVEL_COUNT  // Count of available log levels.
+} LogLevel;

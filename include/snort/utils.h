@@ -15,7 +15,27 @@
 */
 
 /*
-  @file src/main.c
-  @brief Main library implementation
+  @file include/snort/utils.h
+  @brief Utility functions and macros
   @author Ilya Buravov (ilburale@gmail.com)
 */
+
+#pragma once
+
+#include <stddef.h>
+#include <time.h>
+
+/*
+  @brief Initializes LogEntry struct and automatically sets `file_path`, `text`
+         and `timestamp`
+  @param msg Message
+  @param lvl Log level
+*/
+#define make_log_entry(msg, lvl) \
+  {                              \
+    .file_path   = __FILE__,     \
+    .message     = msg,          \
+    .timestamp   = time (NULL),  \
+    .line_number = __LINE__,     \
+    .level       = lvl,          \
+  }

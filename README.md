@@ -85,3 +85,10 @@ set(SNORT_BUILD_SHARED ON)
 add_subdirectory(snort)
 target_link_libraries(your_target PRIVATE snort)
 ```
+
+## Setting root directory for file paths in log
+
+In order to set root directory for file paths in log messages set this compiler option:
+```shell
+-fmacro-prefix-map=/path/to/project=.
+```

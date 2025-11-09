@@ -81,7 +81,7 @@ include(CMakeInfo.txt)
 #-----------------------------------------------------------------------------
 # Define source files for the library
 set(SNORT_SOURCE_FILES
-  src/main.c
+  src/logging.c
   # add new source files here...
 )
 

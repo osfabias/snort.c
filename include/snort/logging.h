@@ -22,8 +22,10 @@
 
 #pragma once
 
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <time.h>
 
 #include "snort/apidef.h"
@@ -34,77 +36,84 @@
 /*
   @brief Logs entry
   @param entry Entry to log
+  @param ... Variable arguments for formatting (if format string has placeholders)
 */
-__SNORT_API__ void log_entry (const LogEntry *entry);
+__SNORT_API__ void log_entry (const LogEntry *entry, ...);
 
 /*
   @brief Logs entry of `trace` level
-  @param msg Entry detail message
+  @param fmt Format string (printf-style) or plain message
+  @param ... Variable arguments for formatting
 */
-#define trace(msg)                                                \
+#define trace(fmt, ...)                                           \
   do                                                              \
   {                                                               \
-    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_TRACE); \
-    log_entry (&entry);                                           \
+    const LogEntry entry = make_log_entry (fmt, LOG_LEVEL_TRACE); \
+    log_entry (&entry, ##__VA_ARGS__);                            \
   }                                                               \
   while (false)
 
 /*
   @brief Logs entry of `debug` level
-  @param msg Entry detail message
+  @param fmt Format string (printf-style) or plain message
+  @param ... Variable arguments for formatting
 */
-#define debug(msg)                                                \
+#define debug(fmt, ...)                                           \
   do                                                              \
   {                                                               \
-    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_DEBUG); \
-    log_entry (&entry);                                           \
+    const LogEntry entry = make_log_entry (fmt, LOG_LEVEL_DEBUG); \
+    log_entry (&entry, ##__VA_ARGS__);                            \
   }                                                               \
   while (false)
 
 /*
   @brief Logs entry of `info` level
-  @param msg Entry detail message
+  @param fmt Format string (printf-style) or plain message
+  @param ... Variable arguments for formatting
 */
-#define info(msg)                                                \
+#define info(fmt, ...)                                           \
   do                                                             \
   {                                                              \
-    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_INFO); \
-    log_entry (&entry);                                          \
+    const LogEntry entry = make_log_entry (fmt, LOG_LEVEL_INFO); \
+    log_entry (&entry, ##__VA_ARGS__);                           \
   }                                                              \
   while (false)
 
 /*
   @brief Logs entry of `warning` level
-  @param msg Entry detail message
+  @param fmt Format string (printf-style) or plain message
+  @param ... Variable arguments for formatting
 */
-#define warning(msg)                                                \
+#define warning(fmt, ...)                                           \
   do                                                                \
   {                                                                 \
-    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_WARNING); \
-    log_entry (&entry);                                             \
+    const LogEntry entry = make_log_entry (fmt, LOG_LEVEL_WARNING); \
+    log_entry (&entry, ##__VA_ARGS__);                              \
   }                                                                 \
   while (false)
 
 /*
   @brief Logs entry of `error` level
-  @param msg Entry detail message
+  @param fmt Format string (printf-style) or plain message
+  @param ... Variable arguments for formatting
 */
-#define error(msg)                                                \
+#define error(fmt, ...)                                           \
   do                                                              \
   {                                                               \
-    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_ERROR); \
-    log_entry (&entry);                                           \
+    const LogEntry entry = make_log_entry (fmt, LOG_LEVEL_ERROR); \
+    log_entry (&entry, ##__VA_ARGS__);                            \
   }                                                               \
   while (false)
 
 /*
   @brief Logs entry of `fatal` level
-  @param msg Entry detail message
+  @param fmt Format string (printf-style) or plain message
+  @param ... Variable arguments for formatting
 */
-#define fatal(msg)                                                \
+#define fatal(fmt, ...)                                           \
   do                                                              \
   {                                                               \
-    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_FATAL); \
-    log_entry (&entry);                                           \
+    const LogEntry entry = make_log_entry (fmt, LOG_LEVEL_FATAL); \
+    log_entry (&entry, ##__VA_ARGS__);                            \
   }                                                               \
   while (false)

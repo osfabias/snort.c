@@ -20,6 +20,7 @@
   @author Ilya Buravov (ilburale@gmail.com)
 */
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <time.h>
 
@@ -56,12 +57,19 @@ void print_log_level_tag (LogLevel level);
    IMPLEMENTATIONS
  *=============================================================================*/
 
-void log_entry (const LogEntry *const entry)
+void log_entry (const LogEntry *const entry, ...)
 {
+  static char buffer[ 1024 ];
+  va_list     args;
+
   print_timestamp (entry->timestamp);
   print_entry_origin_details (entry);
   print_log_level_tag (entry->level);
-  puts (entry->message);
+
+  va_start (args, entry);
+  vsnprintf (buffer, sizeof (buffer) / sizeof (buffer[ 0 ]), entry->format, args);
+  va_end (args);
+  puts (buffer);
 }
 
 void print_timestamp (const time_t timestamp)

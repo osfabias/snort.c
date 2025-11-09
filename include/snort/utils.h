@@ -26,15 +26,15 @@
 #include <time.h>
 
 /*
-  @brief Initializes LogEntry struct and automatically sets `file_path`, `text`
+  @brief Initializes LogEntry struct and automatically sets `file_path`, `format`
          and `timestamp`
-  @param msg Message
+  @param fmt Format string (printf-style) or plain message string
   @param lvl Log level
 */
-#define make_log_entry(msg, lvl) \
+#define make_log_entry(fmt, lvl) \
   {                              \
     .file_path   = __FILE__,     \
-    .message     = msg,          \
+    .format      = fmt,          \
     .timestamp   = time (NULL),  \
     .line_number = __LINE__,     \
     .level       = lvl,          \

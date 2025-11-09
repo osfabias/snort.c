@@ -36,5 +36,16 @@ int main (void)
   error ("error message!");
   fatal ("fatal message!");
 
+  // Example usage of formatted logging macros
+  const int   value = 42;
+  const char *name  = "snort";
+
+  trace ("formatted trace: value = %d", value);
+  debug ("formatted debug: name = %s", name);
+  info ("formatted info: %s version %d.%d", name, 0, 1);
+  warning ("formatted warning: value %d is suspicious", value);
+  error ("formatted error: failed to process %s (code: %d)", name, 404);
+  fatal ("formatted fatal: system %s crashed with code %d", name, 500);
+
   return EXIT_SUCCESS;
 }

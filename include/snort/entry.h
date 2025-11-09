@@ -32,7 +32,7 @@
 typedef struct
 {
   const char *const file_path;    // A path to the file being logged.
-  const char *const message;      // Detail message.
+  const char *const format;       // Format string (printf-style).
   const time_t      timestamp;    // Time when the log entry was created.
   const uint32_t    line_number;  // Source line number where the log entry originate.
   const LogLevel    level;        // Message severity.

@@ -20,7 +20,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/MyGroup/snort.git
+git clone git@github.com:osfabias/snort.c.git
 cd snort
 
 # Create build directory

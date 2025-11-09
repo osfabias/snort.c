@@ -102,13 +102,6 @@ target_include_directories(snort PRIVATE .)
 
 target_compile_options(snort PRIVATE ${SNORT_COMPILE_OPTIONS})
 
-# Set target properties
-set_target_properties(snort PROPERTIES
-    C_STANDARD 99
-    C_STANDARD_REQUIRED ON
-    C_EXTENSIONS OFF
-)
-
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
   target_compile_definitions(snort PUBLIC __SNORT_DEBUG__)
 endif()

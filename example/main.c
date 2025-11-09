@@ -25,4 +25,16 @@
 
 #include <stdlib.h>
 
-int main (void) { return EXIT_SUCCESS; }
+#include <snort/logging.h>
+
+int main (void)
+{
+  trace ("trace message!");
+  debug ("debug message!");
+  info ("info message!");
+  warning ("warning message!");
+  error ("error message!");
+  fatal ("fatal message!");
+
+  return EXIT_SUCCESS;
+}

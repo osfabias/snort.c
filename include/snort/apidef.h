@@ -31,9 +31,9 @@
 
 /*
   @brief Internal macro for Windows DLL export/import declarations
-  @details This macro handles the Windows-specific __declspec(dllexport/dllimport)
-           declarations for shared libraries. It is automatically defined based
-           on whether the library is being built or consumed.
+  @details This macro handles the Windows-specific
+  __declspec(dllexport/dllimport) declarations for shared libraries. It is
+  automatically defined based on whether the library is being built or consumed.
 
   @note This macro is internal and should not be used directly in user code.
         Use @ref __SNORT_API__ instead.

@@ -30,5 +30,7 @@ typedef enum
   LOG_LEVEL_INFO,     // Informational or success messages.
   LOG_LEVEL_WARNING,  // Warnings (you got it).
   LOG_LEVEL_ERROR,    // Non-fatal errors that do not crush the program.
-  LOG_LEVEL_FATAL     // Fatal errors that do crush the program.
+  LOG_LEVEL_FATAL,    // Fatal errors that do crush the program.
+
+  LOG_LEVEL_COUNT  // Count of available log levels.
 } LogLevel;

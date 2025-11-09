@@ -39,6 +39,8 @@ else()
     -Wpedantic
 
     -Wno-gnu-zero-variadic-macro-arguments
+
+    -fmacro-prefix-map=${CMAKE_SOURCE_DIR}=.
     # add new clang or gnu compile options here...
   )
 endif()
@@ -81,7 +83,7 @@ include(CMakeInfo.txt)
 #-----------------------------------------------------------------------------
 # Define source files for the library
 set(SNORT_SOURCE_FILES
-  src/main.c
+  src/logging.c
   # add new source files here...
 )
 

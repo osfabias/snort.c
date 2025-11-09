@@ -21,3 +21,90 @@
 */
 
 #pragma once
+
+#include <stdbool.h>
+#include <stddef.h>
+#include <time.h>
+
+#include "snort/apidef.h"
+#include "snort/entry.h"
+#include "snort/level.h"
+#include "snort/utils.h"
+
+/*
+  @brief Logs entry
+  @param entry Entry to log
+*/
+__SNORT_API__ void log_entry (const LogEntry *entry);
+
+/*
+  @brief Logs entry of `trace` level
+  @param msg Entry detail message
+*/
+#define trace(msg)                                                \
+  do                                                              \
+  {                                                               \
+    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_TRACE); \
+    log_entry (&entry);                                           \
+  }                                                               \
+  while (false)
+
+/*
+  @brief Logs entry of `debug` level
+  @param msg Entry detail message
+*/
+#define debug(msg)                                                \
+  do                                                              \
+  {                                                               \
+    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_DEBUG); \
+    log_entry (&entry);                                           \
+  }                                                               \
+  while (false)
+
+/*
+  @brief Logs entry of `info` level
+  @param msg Entry detail message
+*/
+#define info(msg)                                                \
+  do                                                             \
+  {                                                              \
+    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_INFO); \
+    log_entry (&entry);                                          \
+  }                                                              \
+  while (false)
+
+/*
+  @brief Logs entry of `warning` level
+  @param msg Entry detail message
+*/
+#define warning(msg)                                                \
+  do                                                                \
+  {                                                                 \
+    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_WARNING); \
+    log_entry (&entry);                                             \
+  }                                                                 \
+  while (false)
+
+/*
+  @brief Logs entry of `error` level
+  @param msg Entry detail message
+*/
+#define error(msg)                                                \
+  do                                                              \
+  {                                                               \
+    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_ERROR); \
+    log_entry (&entry);                                           \
+  }                                                               \
+  while (false)
+
+/*
+  @brief Logs entry of `fatal` level
+  @param msg Entry detail message
+*/
+#define fatal(msg)                                                \
+  do                                                              \
+  {                                                               \
+    const LogEntry entry = make_log_entry (msg, LOG_LEVEL_FATAL); \
+    log_entry (&entry);                                           \
+  }                                                               \
+  while (false)

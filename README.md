@@ -1,4 +1,4 @@
-# snort
+# snort.c 🐖
 
 C logging library.
 
